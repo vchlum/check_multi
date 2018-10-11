@@ -4373,6 +4373,9 @@ sub report_ascii {
 		#--- skip eval
 		next if ($cmds[$no]{type} eq "eval");
 
+		#--- skip OK
+		next if ($cmds[$no]{rc} == $OK);
+
 		#--- if NAGIOS2 output: skip $OK results
 		if ($opt{set}{report} & $DETAIL_NAGIOS2) {
 			next if ($cmds[$no]{rc} == $OK);
